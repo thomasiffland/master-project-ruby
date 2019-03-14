@@ -7,7 +7,7 @@ require 'rest_client'
 require 'fileutils'
 
 
-uri = 'grayscale:8081/grayscale'
+uri = 'http://grayscale:8081/grayscale'
 
 def create_images_folder()
   unless File.directory?('/tmp/images')
@@ -48,7 +48,7 @@ post '/rawtojpg/grayscale' do
     file_without_extension = File.absolute_path(f).split(".")
 
     Open3.pipeline(['dcraw', '-c', '-w', File.absolute_path(f)], ['convert', '-', file_without_extension[0] + ".jpg"])
-    res = RestClient.post(uri, {:file => File.new(File.absolute_path(f))})
+    res = RestClient.post(uri, {:file => File.new(File.absolute_path(file_without_extension[0]+".jpg"))})
 
     File.open(file_without_extension[0] + "_rawtograyscale.jpg", 'wb') do |f|
       f.write(res.body)
