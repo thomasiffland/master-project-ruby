@@ -7,7 +7,7 @@ set :bind, '0.0.0.0'
 require 'rest_client'
 require 'fileutils'
 
-uri = 'http://localhost:8083/resize'
+uri = 'http://resize:8083/resize'
 
 
 def create_images_folder()

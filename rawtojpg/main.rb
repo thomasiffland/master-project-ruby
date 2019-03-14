@@ -7,7 +7,7 @@ require 'rest_client'
 require 'fileutils'
 
 
-uri = 'localhost:8081/grayscale'
+uri = 'grayscale:8081/grayscale'
 
 def create_images_folder()
   unless File.directory?('/tmp/images')

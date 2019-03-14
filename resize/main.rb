@@ -6,7 +6,7 @@ set :bind, '0.0.0.0'
 require 'fileutils'
 
 require 'rest_client'
-uri = 'localhost:8082/exifdata/filtered'
+uri = 'exifdata:8082/exifdata/filtered'
 
 def create_images_folder()
   unless File.directory?('/tmp/images')
